@@ -1,0 +1,37 @@
+{
+  "name": "ginit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cedricnoel/ginit.git"
+  },
+  "keywords": [
+    "Git",
+    "CLI"
+  ],
+  "author": "Cédric Noël",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cedricnoel/ginit/issues"
+  },
+  "homepage": "https://github.com/cedricnoel/ginit#readme",
+  "dependencies": {
+    "@octokit/rest": "^15.9.4",
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^3.1.2",
+    "figlet": "^1.2.0",
+    "inquirer": "^6.0.0",
+    "lodash": "^4.17.10",
+    "minimist": "^1.2.0",
+    "npm": "^6.2.0",
+    "simple-git": "^1.96.0",
+    "touch": "^3.1.0"
+  }
+}
