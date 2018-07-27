@@ -2,7 +2,8 @@ const chalk    = require('chalk');
 const clear    = require('clear');
 const figlet   = require('figlet');
 const files    = require('./lib/files');
-const inquirer = require('./lib/inquirer.js');
+const inquirer = require('./lib/inquirer');
+const github   = require('./lib/github');
 
 clear();
 
@@ -11,7 +12,6 @@ console.log(
 		figlet.textSync('Ginit', { horizontalLayout: 'full' })
 	)
 );
-
 
 if (files.directoryExists('.git')) {
 	console.log(chalk.red('Already a git repository!'));
@@ -24,10 +24,18 @@ if (files.directoryExists('.git')) {
  * @return void
  */
 const run = async() => {
-	// Run inquier file function
-	const credentials = await inquirer.askGithubCredentials();
-	// When the user answer we log the result
-  	console.log(credentials);
+	let token = github.getStoredGithubToken()
+
+	if (!token) {
+		await github.setGithubCredentials();
+
+		token = github.registerNewToken();
+	}
+
+	console.log(token);
 }
 
 run();
+
+// === 	TO BE CONTINUED
+// https://www.sitepoint.com/javascript-command-line-interface-cli-node-js/
